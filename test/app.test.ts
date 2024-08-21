@@ -1,7 +1,18 @@
 import { assert, expect, test } from "vitest";
 import priceList from "../data/priceList.json";
 import { calc } from "../app";
-import { item, order, priceListType, promotionType, result } from "../types";
+import { order, promotionType, result } from "../types";
+
+// To add a test, add a senario to test the function
+// Example:
+// if a customer is a member, promotion is available, and the customer buys all items, the total price should be 495.9
+// const isMember = true;
+// const promotion: promotionType[] = [ { item: "green", qty: 2 }, { item: "pink", qty: 2 }, { item: "orange", qty: 2 } ];
+// const order: order = [ { item: "red", qty: 1 }, { item: "blue", qty: 1 }, { item: "green", qty: 1 }, { item: "yellow", qty: 1 }, { item: "pink", qty: 1 }, { item: "purple", qty: 1 }, { item: "orange", qty: 2 } ];
+// const result: result = calc(order, isMember, promotion);
+// expect(result.total).toBe(495.9);
+// expect(result.isMemberDiscount).toBe(true);
+// expect(result.isPromotionDiscount).toBe(true);
 
 test("priceList is an object", () => {
     assert.isObject(priceList);
@@ -103,7 +114,7 @@ test("it should return 414 when by all items each with 10% discount", () => {
 });
 
 test("It should return 551 when buy all items, including any promotional items without member", () => {
-  const isMember = false;
+    const isMember = false;
     const promotion: promotionType[] = [
         {
             item: "green",
@@ -118,6 +129,7 @@ test("It should return 551 when buy all items, including any promotional items w
             qty: 2,
         },
     ];
+    // * qty in promotion is the minimum quantity to get the discount
 
     const order: order = [
         {
@@ -157,7 +169,7 @@ test("It should return 551 when buy all items, including any promotional items w
 });
 
 test("It should return  when buy all items, including any promotional items with member", () => {
-  const isMember = true;
+    const isMember = true;
     const promotion: promotionType[] = [
         {
             item: "green",
@@ -172,6 +184,7 @@ test("It should return  when buy all items, including any promotional items with
             qty: 2,
         },
     ];
+    // * qty in promotion is the minimum quantity to get the discount
 
     const order: order = [
         {
@@ -209,4 +222,3 @@ test("It should return  when buy all items, including any promotional items with
     expect(result.isMemberDiscount).toBe(true);
     expect(result.isPromotionDiscount).toBe(true);
 });
-
