@@ -1,0 +1,21 @@
+{
+  "name": "ooca_assignment",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/app.js\"",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.2",
+    "vitest": "^2.0.5"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

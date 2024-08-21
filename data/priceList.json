@@ -1,0 +1,24 @@
+{
+    "red": {
+        "price": 50
+    },
+    "green": {
+        "price": 40
+    },
+    "blue": {
+        "price": 30
+    },
+    "yellow": {
+        "price": 50
+    },
+    "pink": {
+        "price": 80
+    },
+    "purple": {
+        "price": 90
+    },
+    "orange": {
+        "price": 120
+    }
+
+}
